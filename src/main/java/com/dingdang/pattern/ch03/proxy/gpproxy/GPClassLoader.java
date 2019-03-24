@@ -31,12 +31,11 @@ public class GPClassLoader extends ClassLoader {
                     byte[] buff = new byte[1024];
                     int len;
                     while((len = in.read(buff)) != -1){
-
+                        out.write(buff, 0, len);
                     }
-
-
+                    return defineClass(className, out.toByteArray(), 0, out.size());//自己手动加载.class
                 }catch (Exception e){
-
+                    e.printStackTrace();
                 }
             }
 

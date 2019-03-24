@@ -10,7 +10,8 @@ import java.lang.reflect.Proxy;
  * @author: blessed
  * @Date: 2019/3/10
  */
-public class Meipo implements InvocationHandler {
+public class JDKMeipo implements InvocationHandler {
+    //持有目标对象的引用
     private Person target;
 
     public Object getInstance(Person person)throws Exception{
@@ -28,11 +29,11 @@ public class Meipo implements InvocationHandler {
     }
 
     private void before(){
-        System.out.println("功能增强");
+        System.out.println("功能增强-前");
     }
 
     private void after(){
-        System.out.println("功能增强");
+        System.out.println("功能增强-后");
     }
 
 
